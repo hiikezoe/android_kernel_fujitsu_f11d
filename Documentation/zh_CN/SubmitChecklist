@@ -1,0 +1,109 @@
+Chinese translated version of Documentation/SubmitChecklist
+
+If you have any comment or update to the content, please contact the
+original document maintainer directly.  However, if you have a problem
+communicating in English you can also ask the Chinese maintainer for
+help.  Contact the Chinese maintainer if this translation is outdated
+or if there is a problem with the translation.
+
+Chinese maintainer: Harry Wei <harryxiyou@gmail.com>
+---------------------------------------------------------------------
+Documentation/SubmitChecklist ‹c›Î—ÂŒL™é
+
+”å›˜‹“¾‘Ù’Œú˜À‰]—Â‹c’Ø”Û‚K”‹›¯r‘I˜Tš«—Â‹T‹c—ªC›~B”å›’á•·šbšA—Â
+Z‘—šo¥’Ï‹cO‚K™°h™Ò˜’›Î—Âˆä—ªC›~”“›øB”å›‰]ŒL™éŒú˜À‰¹®•¯’›~ŒL
+™éŠäšØ—È–à‚K”‹‘I˜T›Î—Âˆä—ªC›~B
+
+›Î—Âˆä—ªC›~‚Y Ô—— Harry Wei <harryxiyou@gmail.com>
+›Î—ÂˆäŒL™é›~‚Y Ô—— Harry Wei <harryxiyou@gmail.com>
+›Î—Âˆä˜¡™é›~‚Y Ô—— Harry Wei <harryxiyou@gmail.com>
+
+
+™Ò˜a—¨›—Â
+---------------------------------------------------------------------
+Linux’ØÉ–ßZ”…‹D
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+›‚íšo™¹˜§’ØÉIŒA›~šEŒÁœ–‹c™‰]•À”‰‚K”å›–›’f˜‹S‹\œs¸‹c’ØÉ‰·‹Ÿ–ßZ
+‰Zr•Ú‹cŒúŒB
+
+›‚˜§‹º•ÅŠKŠ–Documentation/SubmittingPatches—Â‹Tí–™–ßH‹c™Ò®“â–›
+wšy–ßZLinux’ØÉ‰·‹Ÿ‹c–T’—B
+
+1‚Y”å›’á•·šb‘j™¹ŒôE’Ú’Å’SË#include‹¦™ã/•™’—’ÅŒôE’Ú‹c’ÅŒô—ÂüB
+   ‰¹™¨™¾^“â–›âr™û”é‹¦™ã/•™’—’ÅŒôE’Ú‹c—V—ÂüB
+
+2‚YXGğ€•Èšb’›~ŒúŒÂCONFIG™@˜ =y‚K=m‚K’›~=nB
+   ‰¹™¨šo‰€™é­Œä/Šë—ñ‚K ‰¹™¨šo‘Sr­Œä/Šë—ñB
+
+2b‚Y—G allnoconfig, allmodconfig
+
+2c‚Y‹P•·šb 0=builddir ŠhE‹wXG
+
+3‚Y—G•·šb‰]‹wZ‰ä‰€™éCİ’›~“â–›™¹˜§XG‰ø–™‚KšØ‹ŞCPU’Ú•nXGB
+
+4‚Yppc64 •Å™¹ŒôÚÁ‹cê‰çZ‰ä‰€™é‹c’Ú‚K™ğ—¨–œ—™—™ˆÏMunsigned longN
+   ‹P64—¹›³²•·šbB
+
+5‚Yˆ²›tDocumentation/CodingStyle—Âüí‹c˜Š˜W’ˆ•ô‚Kê‰ç’á‰·‹Ÿ‹c››–ãŒ‡ŒïB
+   •·šb‰·‹ŸŒ‡Œïê‰ç–––‰‹c—£†(scripts/checkpatch.pl)‚K•“Éš¯šd˜g–ßZB
+   ’ášEŒÁ‹—››™Ã‘”šØ’á‰·‹Ÿ›Î‹c–™šo—£†B
+
+6‚Y”ÌÌŒú˜À’›~ŒÂ‹­CONFIG™@˜‹º‰¹’ÚŠğ‘Ğ“„›Á‰É‹DB
+
+7‚Y–™šo‹cKconfig™@˜Œú˜À‹º™¨šo–T’——ÂœuB
+
+8‚Y™Ï«”Í›†‹wœ{‘j˜€w‹cKconfigœ‰ÍB›‚•ÅÚ’Ï—G‰à•Òœ–Á‹c--’Ò‘EšØ›‚í˜aTB
+
+9‚Yê‰çİšoğ€˜ÒB
+
+10‚Y•·šb'make checkstack'Ë'make namespacecheck'ê‰ç‚K”¹ñ˜ÜŒÂ–™›q‹\‹c—È–àB
+    œA™à‚Y‹Ï›Zê‰ç‰¹’—”µ‹wŠ–˜u—È–à‚K‹J•Å”ÌÌ‹c™¹Œô­•ûšØ‹Ï›Z•n•·šb‹Şšy512œuy
+    ‹º™¨œ[‰W˜ÜŒÂB
+
+11‚Yˆúªkernel-doc‹\”©Ô’ØÉAPIs—ÂüB‚G‰¹™¨”“°–ª‹c­•û‚K‹J•Åˆúª™°—Ü–™—»B‚H
+    •·šb'make htmldocs'’›~'make mandocs'²ê‰çkernel-doc‚K”¹ñ˜ÜŒÂ”ÌÌ
+    ŒA˜u‹c—È–àB
+
+12‚Y™Ï«—GCONFIG_PREEMPT, CONFIG_DEBUG_PREEMPT,
+    CONFIG_DEBUG_SLAB, CONFIG_DEBUG_PAGEALLOC, CONFIG_DEBUG_MUTEXES,
+    CONFIG_DEBUG_SPINLOCK, CONFIG_DEBUG_SPINLOCK_SLEEP‰à•Ò‚K‰ ”q—K•¯‹º
+    •·’ÚB
+
+13‚Y™Ï«‹ºXG‰ ”q•·šb’›~‰¹•·šb CONFIG_SMP Ë CONFIG_PREEMPT‰à•Ò›²˜Î•¯âB
+
+14‚Y”å›‰·‹ŸšO˜ŒIO/Disk‚K‹g‹g‚Y™Ï«—G•·šb’›~‰¹•·šb CONFIG_LBDAF ‰à•ÒB
+
+15‚Y–™šo‹ccodepaths™Ï«˜Î•·–™šolockdep“òšbE’ÚB
+
+16‚Y–™šo‹c/procÅ‘ºŒú˜À‹º™¨œ—Šh—ÂüŒdšØDocumentation/’½‘º˜aB
+
+17‚Y–™šo‹c’ØÉ“ò‹­‰Ì•ûŒú˜À‹º‰ZÅ‘º‹\Documentation/kernel-parameters.txt—Âü›ÎB
+
+18‚Y–™šo‹c’¡‰‰Ì•ûŒú˜À‹ºšbMODULE_PARM_DESC()Å‘ºB
+
+19‚Y–™šo‹cšbFtâryŒú˜À‹º‰ZÅ‘º‹\Documentation/ABI/B‰çSDocumentation/ABI/README
+    h™Ò‘‹bŒú‹Ş‹c˜Ã˜ABŒÂ‰„šbFtâry‹c‰·‹ŸšEŒÁ‰ZšiüŠL–lŒölinux-api@vger.kernel.orgB
+
+20‚Yê‰ç–œ•Å‰¹•Å‹º—G`make headers_check'B
+
+21‚Y™Ï«—G›¿•x™û”éslabËpage-allocation•¥ˆÚê‰çB‰çSDocumentation/fault-injection/B
+
+22‚Y˜ÀÑ”é‹cš²‘é™Ï«—G`gcc -W'‚G•·šb"make EXTRA_CFLAGS=-W"‚H‰€™éB›‚™™J‰ø•šÚ‹ŞŒR’Ó‚K
+    ‹J•Å‹Òšy™O›q‘§‹²Úšo™äŠ¤‚Kû”å:"warning: comparison between signed and unsigned"B
+
+23‚Y‹P–œ‰ZÍ‰ ‹\-mm‰·‹Ÿ­ñš×‰à•Ò‚Kšb²”µ‹¦–œ•ÅŒ‘XË‰·‹Ÿ‹Ñ‘o›Î‹c“â–›‰·‹Ÿ™¹“îCœ—™Ò®šØVM‚KVFS
+    Ë“â–›œr˜T—R›ÎŒõŒô‰„NB
+
+24‚Y–™šo‹c’ØŠä“¿›n{e.g., barrier(), rmb(), wmb()}˜æ™¨šØš²Šø‘é›Î‹c™¹ŒôœA•Ë²‚•Ë–›’f‹º•ÅŒÇ•°’S‹c
+    ™Ò®š«™ğB
+
+25‚Y”å›šo”ÌÌ•â”é•âŠ–w›Ä‹c‰·‹Ÿ‰Z–ëÑ‚K™°™¨Œú˜ÀDocumentation/ioctl/ioctl-number.txtB
+
+26‚Y”å›’á‹cŒúŒÂŠø‘é™¾^’›~•·šb”ÌÌ‹c’ØÉAPIs’›~š‹˜a’†‹ckconfigŒ›Ãšow˜T‹cE’Ú‚K’áË™¨
+    •·šb˜€w‹ckconfigŒ›Ãw‰t‚K and/or =m‚G”å›™@˜–ßH‚H[šØ—K™¹•¯â‰¹•Å–™šb‹c‹º“òšb‚K––ŒõŒô’›~œsšh
+    œ‰Í–›’f]‚Y
+
+    CONFIG_SMP, CONFIG_SYSFS, CONFIG_PROC_FS, CONFIG_INPUT, CONFIG_PCI,
+    CONFIG_BLOCK, CONFIG_PM, CONFIG_HOTPLUG, CONFIG_MAGIC_SYSRQ,
+    CONFIG_NET, CONFIG_INET=n (ñ™¹Œô•·šb CONFIG_NET=y)

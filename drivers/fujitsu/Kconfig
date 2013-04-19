@@ -1,0 +1,37 @@
+menuconfig FUJITSU_DEVICES
+	bool "Fujitsu drivers"
+	default y
+	---help---
+	  Say Y here to get to see options for device drivers from various
+	  different categories. This option alone does not add any kernel code.
+
+	  If you say N, all options in this submenu will be skipped and disabled.
+
+
+if FUJITSU_DEVICES
+
+config FUJITSU_TOUCHPANEL
+	tristate "FUJITSU TOUCHPANEL"
+
+config FUJITSU_WALKMOTION
+	tristate "FUJITSU WALKMOTION"
+
+config FUJITSU_LIGHT
+	tristate "FUJITSU LIGHT"
+
+config FUJITSU_COMPASS
+	tristate "FUJITSU COMPASS"
+
+config FUJITSU_IRDA
+	tristate "FUJITSU IRDA"
+
+#config FUJITSU_FELICA
+#	tristate "FUJITSU FELICA"
+
+config FUJITSU_FCFD
+	tristate "FUJITSU FCFD"
+
+config FUJITSU_FCSMD
+	tristate "FUJITSU FCSMD"
+
+endif # FUJITSU_DEVICES

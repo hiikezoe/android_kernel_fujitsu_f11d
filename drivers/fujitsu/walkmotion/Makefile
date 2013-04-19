@@ -1,0 +1,1 @@
+obj-$(CONFIG_FUJITSU_WALKMOTION) := walkmotion.o

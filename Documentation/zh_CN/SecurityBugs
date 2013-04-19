@@ -1,0 +1,50 @@
+Chinese translated version of Documentation/SecurityBugs
+
+If you have any comment or update to the content, please contact the
+original document maintainer directly.  However, if you have a problem
+communicating in English you can also ask the Chinese maintainer for
+help.  Contact the Chinese maintainer if this translation is outdated
+or if there is a problem with the translation.
+
+Chinese maintainer: Harry Wei <harryxiyou@gmail.com>
+---------------------------------------------------------------------
+Documentation/SecurityBugs 的中文翻
+
+如果想或更新本文的内容，直接系原文档的者。如果使用英文
+交流有困的，也可以向中文版者求助。如果本翻更新不及或者翻
+存在，系中文版者。
+
+中文版者： 威威 Harry Wei <harryxiyou@gmail.com>
+中文版翻者： 威威 Harry Wei <harryxiyou@gmail.com>
+中文版校者： 威威 Harry Wei <harryxiyou@gmail.com>
+
+
+以下正文
+---------------------------------------------------------------------
+Linux内核者安全非常重要。因此，我想要知道当一个有于
+安全的漏洞被的候，并且它可能会被尽快的修或者公。把个安全
+漏洞告Linux内核安全。
+
+1) 系
+
+linux内核安全可以通email<security@kernel.org>来系。是
+一独立的安全工作人，可以助改善漏洞告并且公布和取消一个修。安
+全有可能会从部分的者那里引外的助来了解并且修安全漏洞。
+当遇到任何漏洞，所能提供的信息越多就越能断和修。如果不清楚什
+是有助的信息，那就重温一下REPORTING-BUGS文件中的概述程。任
+何攻性的代都是非常有用的，未告者的同意不会被取消，除非它已
+被公布于。
+
+2) 公
+
+Linux内核安全的宗旨就是和漏洞提交者一起理漏洞的解决方案直
+到公。我喜尽快地完全公漏洞。当一个漏洞或者修没有被完全地理
+解，解决方案没有通或者供商，可以合理地延公。然而，我
+期望些延尽可能的短些，是可数的几天，而不是几个星期或者几个月。公
+日期是通安全和漏洞提供者以及供商洽后的果。公表是从很
+短（特殊的，它已被公所知道）到几个星期。作一个基本的默政策，我
+所期望通知公的日期是7天的安排。
+
+3) 保密
+
+Linux内核安全不是一个正式的体，因此不能加入任何的保密。
