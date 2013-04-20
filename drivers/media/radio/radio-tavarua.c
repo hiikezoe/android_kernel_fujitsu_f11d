@@ -1163,7 +1163,6 @@ static int tavarua_disable_irq(struct tavarua_device *radio)
 	return 0;
 }
 
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 static int optimized_search_algorithm(struct tavarua_device *radio,
 				int region)
 {

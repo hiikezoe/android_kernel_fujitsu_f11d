@@ -1255,7 +1255,6 @@ done:
 	return new_tag_stat_entry;
 }
 
-#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 static void if_tag_stat_update(const char *ifname, uid_t uid,
 			       const struct sock *sk, enum ifs_tx_rx direction,
 			       int proto, int bytes)
