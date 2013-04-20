@@ -238,6 +238,10 @@ else
 KBUILD_CPPFLAGS += $(patsubst %,-I$(srctree)/%include,$(machdirs) $(platdirs))
 endif
 
+ifeq ($(CONFIG_MACH_IS3JP),y)
+  KBUILD_CPPFLAGS += -DT_QCI_IS3
+endif
+
 export	TEXT_OFFSET GZFLAGS MMUEXT
 
 # Do we have FASTFPE?
