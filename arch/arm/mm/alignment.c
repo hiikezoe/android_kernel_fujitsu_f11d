@@ -291,6 +291,7 @@ union offset_union {
 #define put32t_unaligned_check(val,addr) \
 	__put32_unaligned_check("strbt", val, addr)
 
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 static void
 do_alignment_finish_ldst(unsigned long addr, unsigned long instr, struct pt_regs *regs, union offset_union offset)
 {

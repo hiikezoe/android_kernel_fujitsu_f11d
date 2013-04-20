@@ -1033,6 +1033,7 @@ static void dm_bio_destructor(struct bio *bio)
 	bio_free(bio, bs);
 }
 
+#pragma GCC diagnostic ignored "-Wunused-value"
 /*
  * Creates a little bio that just does part of a bvec.
  */

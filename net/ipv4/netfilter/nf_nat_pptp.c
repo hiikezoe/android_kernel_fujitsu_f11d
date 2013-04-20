@@ -277,6 +277,7 @@ pptp_inbound_pkt(struct sk_buff *skb,
 	return NF_ACCEPT;
 }
 
+#pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_helper_pptp_init(void)
 {
 	nf_nat_need_gre();

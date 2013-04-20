@@ -117,6 +117,7 @@ static void __exit nf_nat_ftp_fini(void)
 	synchronize_rcu();
 }
 
+#pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_ftp_init(void)
 {
 	BUG_ON(nf_nat_ftp_hook != NULL);

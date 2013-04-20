@@ -197,6 +197,7 @@ out_unlock:
 }
 EXPORT_SYMBOL_GPL(nf_conntrack_l3proto_register);
 
+#pragma GCC diagnostic ignored "-Waddress"
 void nf_conntrack_l3proto_unregister(struct nf_conntrack_l3proto *proto)
 {
 	struct net *net;

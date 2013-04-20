@@ -568,6 +568,7 @@ static int nat_callforwarding(struct sk_buff *skb, struct nf_conn *ct,
 	return 0;
 }
 
+#pragma GCC diagnostic ignored "-Waddress"
 /****************************************************************************/
 static int __init init(void)
 {

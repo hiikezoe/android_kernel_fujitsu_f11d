@@ -39,6 +39,7 @@ static struct sbuff *sb_open(void)
 	return m;
 }
 
+#pragma GCC diagnostic ignored "-Wunused-value"
 static void sb_close(struct sbuff *m)
 {
 	m->buf[m->count] = 0;

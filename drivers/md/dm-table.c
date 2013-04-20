@@ -1169,6 +1169,7 @@ combine_limits:
 	return validate_hardware_logical_block_alignment(table, limits);
 }
 
+#pragma GCC diagnostic ignored "-Wunused-value"
 /*
  * Set the integrity profile for this device if all devices used have
  * matching profiles.  We're quite deep in the resume path but still

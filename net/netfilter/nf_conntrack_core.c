@@ -1561,6 +1561,7 @@ s16 (*nf_ct_nat_offset)(const struct nf_conn *ct,
 			u32 seq);
 EXPORT_SYMBOL_GPL(nf_ct_nat_offset);
 
+#pragma GCC diagnostic ignored "-Waddress"
 int nf_conntrack_init(struct net *net)
 {
 	int ret;

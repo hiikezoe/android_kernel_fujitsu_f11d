@@ -79,6 +79,7 @@ static void __exit nf_nat_irc_fini(void)
 	synchronize_rcu();
 }
 
+#pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_irc_init(void)
 {
 	BUG_ON(nf_nat_irc_hook != NULL);
