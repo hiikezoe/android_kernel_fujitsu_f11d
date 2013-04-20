@@ -99,7 +99,7 @@ static uint8_t ps_code_high_thd;
 static int32_t als_transmittance = CONFIG_STK_ALS_TRANSMITTANCE;
 #endif //CONFIG_STK_ALS_TRANSMITTANCE_TUNING
 
-extern inline int qci_read_hw_id(void);
+extern int qci_read_hw_id(void);
 int hwid = 0;
 static int first = 1;
 int AVGSF=100,sf0=1,sf1=1,sf2=1,threshold_h=CONFIG_STK_PS_CODE_HIGH_THRESHOLD,threshold_l=CONFIG_STK_PS_CODE_LOW_THRESHOLD;

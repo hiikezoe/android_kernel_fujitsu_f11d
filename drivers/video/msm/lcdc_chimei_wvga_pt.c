@@ -29,7 +29,7 @@
 #include <linux/earlysuspend.h>
 #include <linux/jiffies.h>
 #include <linux/i2c/is3_power.h>
-extern inline int qci_read_hw_id(void);
+extern int qci_read_hw_id(void);
 
 #ifdef CONFIG_SPI_QSD
 #define LCDC_CHIMEI_SPI_DEVICE_NAME	"lcdc_chimei_hx8363"

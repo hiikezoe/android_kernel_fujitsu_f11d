@@ -48,8 +48,8 @@
 
 #include "../../../arch/arm/mach-msm/proc_comm.h"
 
-inline int qci_get_offline_charging(void);
-inline int qci_get_recovery_charging(void);
+extern int qci_get_offline_charging(void);
+extern int qci_get_recovery_charging(void);
 extern void overheat_set_brightness (void);
 extern void cooldown_set_brightness(void);
 

@@ -48,7 +48,7 @@
 #include "fta_config.h"
 
 #if defined (T_QCI_IS3)
-inline int qci_get_offline_charging(void);
+extern int qci_get_offline_charging(void);
 #endif
 
 /* ==========================================================================

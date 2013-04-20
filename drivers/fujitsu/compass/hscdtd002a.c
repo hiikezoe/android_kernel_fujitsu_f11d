@@ -47,7 +47,7 @@ const char HSCD_DEVNAME[] = "HSCD";
 hscd_t hscd[1];
 
 int JIKI_DRDY_GPIO=144;
-extern inline int qci_read_hw_id(void);
+extern int qci_read_hw_id(void);
 
 DEFINE_SEMAPHORE(hscd_sem);		// For exclusive control
 
