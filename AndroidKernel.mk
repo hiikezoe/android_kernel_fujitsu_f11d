@@ -2,12 +2,14 @@
 
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 
-KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
+KERNEL_OUT := $(abspath $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ)
+KERNEL_PATH := kernel/fujitsu/f11d
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
 TARGET_PREBUILT_INT_KERNEL := $(KERNEL_OUT)/arch/arm/boot/zImage
 KERNEL_HEADERS_INSTALL := $(KERNEL_OUT)/usr
 KERNEL_MODULES_INSTALL := system
 KERNEL_MODULES_OUT := $(TARGET_OUT)/lib/modules
+INSTALLED_KERNEL_TARGET := $(TARGET_PREBUILT_INT_KERNEL)
 
 ifeq ($(TARGET_USES_UNCOMPRESSED_KERNEL),true)
 $(info Using uncompressed kernel)
@@ -36,29 +38,29 @@ $(KERNEL_OUT):
 	mkdir -p $(KERNEL_OUT)
 
 $(KERNEL_CONFIG): $(KERNEL_OUT)
-	$(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- $(KERNEL_DEFCONFIG)
+	$(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- $(KERNEL_DEFCONFIG)
 
 $(KERNEL_OUT)/piggy : $(TARGET_PREBUILT_INT_KERNEL)
 	$(hide) gunzip -c $(KERNEL_OUT)/arch/arm/boot/compressed/piggy.gzip > $(KERNEL_OUT)/piggy
 
 $(TARGET_PREBUILT_INT_KERNEL): $(KERNEL_OUT) $(KERNEL_CONFIG) $(KERNEL_HEADERS_INSTALL)
-	$(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi-
-	$(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- modules
-	$(MAKE) -C kernel O=../$(KERNEL_OUT) INSTALL_MOD_PATH=../../$(KERNEL_MODULES_INSTALL) ARCH=arm CROSS_COMPILE=arm-eabi- modules_install
+	$(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi-
+	$(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- modules
+	$(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) INSTALL_MOD_PATH=../../$(KERNEL_MODULES_INSTALL) ARCH=arm CROSS_COMPILE=arm-eabi- modules_install
 	$(mv-modules)
 	$(clean-module-folder)
 
 $(KERNEL_HEADERS_INSTALL): $(KERNEL_OUT) $(KERNEL_CONFIG)
-	$(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- headers_install
+	$(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- headers_install
+
+$(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr: $(KERNEL_HEADERS_INSTALL)
 
 kerneltags: $(KERNEL_OUT) $(KERNEL_CONFIG)
-	$(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- tags
+	$(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- tags
 
 kernelconfig: $(KERNEL_OUT) $(KERNEL_CONFIG)
 	env KCONFIG_NOTIMESTAMP=true \
-	     $(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- menuconfig
-	env KCONFIG_NOTIMESTAMP=true \
-	     $(MAKE) -C kernel O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- savedefconfig
-	cp $(KERNEL_OUT)/defconfig kernel/arch/arm/configs/$(KERNEL_DEFCONFIG)
+	     $(MAKE) -C $(KERNEL_PATH) O=$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=arm-eabi- menuconfig
+	cp $(KERNEL_OUT)/.config kernel/arch/arm/configs/$(KERNEL_DEFCONFIG)
 
 endif
