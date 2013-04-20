@@ -912,7 +912,7 @@ static struct platform_device this_device = {
 };
 
 
-inline int qci_get_offline_charging(void);
+extern int qci_get_offline_charging(void);
 static int __init lcdc_chimei_panel_init(void)
 {
 	int ret;
