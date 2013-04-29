@@ -811,19 +811,19 @@ sdioh_request_byte(sdioh_info_t *sd, uint rw, uint func, uint regaddr, uint8 *by
 #endif /* MMC_SDIO_ABORT */
 			else if (regaddr < 0xF0) {
 				sd_err(("bcmsdh_sdmmc: F0 Wr:0x%02x: write disallowed\n", regaddr));
-			} else {
+			} else if (gInstance->func[func]) {
 				/* Claim host controller, perform F0 write, and release */
 				sdio_claim_host(gInstance->func[func]);
 				sdio_f0_writeb(gInstance->func[func], *byte, regaddr, &err_ret);
 				sdio_release_host(gInstance->func[func]);
 			}
-		} else {
+		} else if (gInstance->func[func]) {
 			/* Claim host controller, perform Fn write, and release */
 			sdio_claim_host(gInstance->func[func]);
 			sdio_writeb(gInstance->func[func], *byte, regaddr, &err_ret);
 			sdio_release_host(gInstance->func[func]);
 		}
-	} else { /* CMD52 Read */
+	} else if (gInstance->func[func]) { /* CMD52 Read */
 		/* Claim host controller, perform Fn read, and release */
 		sdio_claim_host(gInstance->func[func]);
 
