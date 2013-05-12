@@ -386,8 +386,7 @@ out_unlock:
 	return res;
 }
 
-static int ovl_dir_fsync(struct file *file, loff_t start, loff_t end,
-			 int datasync)
+static int ovl_dir_fsync(struct file *file, int datasync)
 {
 	struct ovl_dir_file *od = file->private_data;
 
@@ -401,7 +400,7 @@ static int ovl_dir_fsync(struct file *file, loff_t start, loff_t end,
 			return PTR_ERR(od->realfile);
 	}
 
-	return vfs_fsync_range(od->realfile, start, end, datasync);
+	return vfs_fsync(od->realfile, datasync);
 }
 
 static int ovl_dir_release(struct inode *inode, struct file *file)

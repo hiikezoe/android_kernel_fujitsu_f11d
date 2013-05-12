@@ -45,7 +45,7 @@ int ovl_check_empty_and_clear(struct dentry *dentry, enum ovl_path_type type);
 
 /* inode.c */
 int ovl_setattr(struct dentry *dentry, struct iattr *attr);
-int ovl_permission(struct inode *inode, int mask);
+int ovl_permission(struct inode *inode, int mask, unsigned int flags);
 int ovl_setxattr(struct dentry *dentry, const char *name,
 		 const void *value, size_t size, int flags);
 ssize_t ovl_getxattr(struct dentry *dentry, const char *name,

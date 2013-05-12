@@ -45,7 +45,7 @@ static int ovl_getattr(struct vfsmount *mnt, struct dentry *dentry,
 	return vfs_getattr(realpath.mnt, realpath.dentry, stat);
 }
 
-int ovl_permission(struct inode *inode, int mask)
+int ovl_permission(struct inode *inode, int mask, unsigned int flags)
 {
 	struct ovl_entry *oe;
 	struct dentry *alias = NULL;
@@ -56,8 +56,6 @@ int ovl_permission(struct inode *inode, int mask)
 
 	if (S_ISDIR(inode->i_mode)) {
 		oe = inode->i_private;
-	} else if (mask & MAY_NOT_BLOCK) {
-		return -ECHILD;
 	} else {
 		/*
 		 * For non-directories find an alias and get the info
@@ -79,7 +77,6 @@ int ovl_permission(struct inode *inode, int mask)
 	/* Careful in RCU walk mode */
 	realinode = ACCESS_ONCE(realdentry->d_inode);
 	if (!realinode) {
-		WARN_ON(!(mask & MAY_NOT_BLOCK));
 		err = -ENOENT;
 		goto out_dput;
 	}
@@ -114,9 +111,9 @@ int ovl_permission(struct inode *inode, int mask)
 	}
 
 	if (realinode->i_op->permission)
-		err = realinode->i_op->permission(realinode, mask);
+		err = realinode->i_op->permission(realinode, mask, flags);
 	else
-		err = generic_permission(realinode, mask);
+		err = generic_permission(realinode, mask, flags, NULL);
 out_dput:
 	dput(alias);
 	return err;
